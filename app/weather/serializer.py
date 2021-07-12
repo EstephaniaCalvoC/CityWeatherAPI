@@ -23,7 +23,6 @@ class WeatherJsonEncoder(json.JSONEncoder):
     def default(self, obj):
         try:
             to_serilize = get_weather_dict_to_serilize(obj)
-            print(to_serilize)
             return to_serilize
         except AttributeError:
             return super().default(obj)

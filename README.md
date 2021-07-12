@@ -32,13 +32,19 @@ REST API to get weather information from a city
     **Note:** You also can try with [Postman](https://www.postman.com/)
 
 5. Testing
-* Run all test
+* Run all test except the API test
     ```bash
-    pytest -svv
+    pytest -svv --ignore=tests/test_api.py
     ```
 * Run only API test
     ```bash
     pytest tests.test_api.py
+    ```
+    **Note:** The test take eight minutes arround, because the api test wait two minutes to clean the cache and make a request.
+
+* Run all test
+    ```bash
+    pytest -svv
     ```
 
 ---
