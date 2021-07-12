@@ -1,8 +1,8 @@
 """Define repository class"""
 from app.city.city import City
 from app.weather.weather import Weather
-from app.utils.parsers import weather_parser, forcast_parser
-from app.utils.requests import req_current_weather, req_daily_forcast
+from app.utils.parsers import weather_parser, forecast_parser
+from app.utils.requests import req_current_weather, req_daily_forecast
 from datetime import datetime
 import uuid
 
@@ -18,16 +18,16 @@ class ApiRepo:
         lat = weather_resp.get("coord").get("lat")
         lon = weather_resp.get("coord").get("lon")
 
-        forcast_resps = req_daily_forcast(lat, lon)
-        daily = forcast_resps.get("daily")
+        forecast_resps = req_daily_forecast(lat, lon)
+        daily = forecast_resps.get("daily")
 
         name = weather_resp.get("name")
         country_code = weather_resp.get("sys").get("country").upper()
         location = f"{name}, {country_code}"
 
-        forcast_dicts = [forcast_parser(forcast) for forcast in daily]
-        daily_forcast = [Weather.from_dict(forcast_dict)
-            for forcast_dict in forcast_dicts]
+        forecast_dicts = [forecast_parser(forecast) for forecast in daily]
+        daily_forecast = [Weather.from_dict(forecast_dict)
+            for forecast_dict in forecast_dicts]
 
         weather_dict = weather_parser(weather_resp)
 
@@ -36,7 +36,7 @@ class ApiRepo:
             location = location,
             current_weather = Weather.from_dict(weather_dict),
             geo_coordenates = {"lat":lat, "lon":lon},
-            daily_forcast = daily_forcast,
+            daily_forecast = daily_forecast,
             requested_time = datetime.utcnow()
         )
 

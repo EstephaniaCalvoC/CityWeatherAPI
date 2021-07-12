@@ -16,22 +16,22 @@ def test_city_json_econder():
     "sunrise": "05:50",
     "sunset": "18:12","""
 
-    forcast_text = weather_text[:-1]
-    forcast_format = f"""{{{forcast_text}}}"""
+    forecast_text = weather_text[:-1]
+    forecast_format = f"""{{{forecast_text}}}"""
 
     expected_json = f"""\
         {{
             "location": "Bogota, CO",
             {weather_text} 
             "geo_coordenates": "[4.6097, -74.0817]",
-            "forcast": [
-                {{"day1": {forcast_format}}},
-                {{"day2": {forcast_format}}},
-                {{"day3": {forcast_format}}},
-                {{"day4": {forcast_format}}},
-                {{"day5": {forcast_format}}},
-                {{"day6": {forcast_format}}},
-                {{"day7": {forcast_format}}}
+            "forecast": [
+                {{"day1": {forecast_format}}},
+                {{"day2": {forecast_format}}},
+                {{"day3": {forecast_format}}},
+                {{"day4": {forecast_format}}},
+                {{"day5": {forecast_format}}},
+                {{"day6": {forecast_format}}},
+                {{"day7": {forecast_format}}}
             ],
             "requested_time": "2021-07-10 05:00:00"
         }}

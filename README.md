@@ -61,7 +61,7 @@ REST API to get weather information from a city
     "sunrise": "05:50",
     "sunset": "18:12",
     "geo_coordenates": "[4.6097, -74.0817]",
-    "forcast": [
+    "forecast": [
         {
             "day1": {
                 "temperature": "16.5 °C",

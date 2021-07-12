@@ -24,10 +24,10 @@ def req_current_weather(city, country):
     return response_dict
 
 
-def req_daily_forcast(lat, lon):
+def req_daily_forecast(lat, lon):
     """\
     Return the response of the request to Open Weather API
-    to get the daily forcast
+    to get the daily forecast
     """
 
     headers = {'content-type': 'application/json'}

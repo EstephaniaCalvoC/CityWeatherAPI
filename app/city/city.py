@@ -14,7 +14,7 @@ class City():
     location: str
     current_weather: Weather
     geo_coordenates: dict
-    daily_forcast: list
+    daily_forecast: list
     requested_time: datetime
 
     @classmethod

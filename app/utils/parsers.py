@@ -25,22 +25,22 @@ def weather_parser(weather_resp):
     return weather_dict
 
 
-def forcast_parser(forcast_resp):
+def forecast_parser(forecast_resp):
     """Extract the weather data from the weather response"""
 
-    cloudiness_lower = forcast_resp.get("weather")[0].get("description")
-    sunrise_utc = forcast_resp.get("sunrise")
-    sunset_utc = forcast_resp.get("sunset")
-    forcast_dict = dict(
+    cloudiness_lower = forecast_resp.get("weather")[0].get("description")
+    sunrise_utc = forecast_resp.get("sunrise")
+    sunset_utc = forecast_resp.get("sunset")
+    forecast_dict = dict(
         code = str(uuid.uuid4()),
-        temperature = forcast_resp.get("temp").get("day"),
-        wind_speed = forcast_resp.get("wind_speed"),
-        wind_deg = forcast_resp.get("wind_deg"),
+        temperature = forecast_resp.get("temp").get("day"),
+        wind_speed = forecast_resp.get("wind_speed"),
+        wind_deg = forecast_resp.get("wind_deg"),
         cloudiness = cloudiness_lower.capitalize(),
-        pressure = forcast_resp.get("pressure"),
-        humidity = forcast_resp.get("humidity"),
+        pressure = forecast_resp.get("pressure"),
+        humidity = forecast_resp.get("humidity"),
         sunrise = datetime.fromtimestamp(sunrise_utc),
         sunset = datetime.fromtimestamp(sunset_utc)
     )
 
-    return forcast_dict
+    return forecast_dict
